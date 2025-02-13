@@ -38,5 +38,19 @@ class Quiz {
         }
     }
 
-}
 
+    filterQuestionsByDifficulty(difficulty) {
+        if (difficulty >= 1 && difficulty <= 3) {
+            this.questions = this.questions.filter((question) => question.difficulty === difficulty);
+        }
+    }
+    
+    averageDifficulty() {
+        const reduce = this.questions.reduce((accumulator, current) => accumulator + current.difficulty, 0);
+
+        const avg = reduce / this.questions.length;
+
+        return avg;
+    }
+    
+}

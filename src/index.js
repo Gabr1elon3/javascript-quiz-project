@@ -32,11 +32,18 @@ document.addEventListener("DOMContentLoaded", () => {
     new Question("What is the mass–energy equivalence equation?", ["E = mc^2", "E = m*c^2", "E = m*c^3", "E = m*c"], "E = mc^2", 3),
     // Add more questions here
   ];
+  console.log(questions[0]);
   const quizDuration = 120; // 120 seconds (2 minutes)
 
 
   /************  QUIZ INSTANCE  ************/
-  
+  //Review the starter code provided in the index.js and index.html files.
+/*Implement the DOM logic - function showQuestion().
+Implement the DOM logic - function nextButtonHandler().
+Implement the DOM logic - function showResults().
+Implement a “Restart Quiz” button and the logic to restart the quiz.
+Commit your changes and push them to GitHub.*/
+  {}
   // Create a new Quiz instance object
   const quiz = new Quiz(questions, quizDuration, quizDuration);
   // Shuffle the quiz questions
@@ -55,7 +62,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Show first question
   showQuestion();
-
 
   /************  TIMER  ************/
 
@@ -98,6 +104,14 @@ document.addEventListener("DOMContentLoaded", () => {
     //
     // 1. Show the question
     // Update the inner text of the question container element and show the question text
+    const firstQuestion = questions[0];
+    const questionTag = document.createElement("p");
+    questionTag.innerText = firstQuestion.text; // Use question.text instead of questions[0]
+    questionContainer.appendChild(questionTag);
+//DOES NOT SHOW THE ACTUAL 1ST QUESTION, BUT THAT'S DUE TO THE SHUFFLEQUESTION FUNCTION BEING USED, WHICH SKIPS IT FOR SOME REASON
+
+
+console.log(questions[0])
 
     
     // 2. Update the green progress bar
@@ -135,12 +149,19 @@ document.addEventListener("DOMContentLoaded", () => {
   function nextButtonHandler () {
     let selectedAnswer; // A variable to store the selected answer value
 
-
+{}
 
     // YOUR CODE HERE:
     //
     // 1. Get all the choice elements. You can use the `document.querySelectorAll()` method.
-
+    const choiceElements = document.querySelectorAll('#choices').forEach((selectedAnswer) => {
+      if (selectedAnswer === ".checked") {
+        checkAnswer();
+        moveToNextQuestion();
+        showQuestion();
+      }
+    
+    })
 
     // 2. Loop through all the choice elements and check which one is selected
       // Hint: Radio input elements have a property `.checked` (e.g., `element.checked`).
